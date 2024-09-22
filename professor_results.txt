@@ -1,0 +1,65 @@
+[
+  {
+    "name": "James Haralambides",
+    "email": "jharalambides@barry.edu",
+    "university": "Barry University",
+    "research interests": "Embedded Design, VLSI Design, and Applied Graph Theory",
+    "available master programs": "Computer Science, Information Technology"
+  },
+  {
+    "name": "Richard S. Stansbury",
+    "email": "Email not found",
+    "university": "Embry-Riddle Aeronautical University",
+    "research interests": "Artificial Intelligence and Machine Learning",
+    "available master programs": "Software Engineering, Cyber Intelligence and Security"
+  },
+  {
+    "name": "Bidhan C. Saha",
+    "email": "Email not found",
+    "university": "Florida A&M University",
+    "research interests": "Data Science",
+    "available master programs": "Computer Science, Information Systems"
+  },
+  {
+    "name": "Chrissann Ruehle",
+    "email": "Email not found",
+    "university": "Florida Gulf Coast University",
+    "research interests": "Artificial Intelligence",
+    "available master programs": "Computer Science, Information Systems"
+  },
+  {
+    "name": "Alina Zare",
+    "email": "Email not found",
+    "university": "University of Florida",
+    "research interests": "Machine Learning and Sensing",
+    "available master programs": "Computer Science, Electrical and Computer Engineering"
+  },
+  {
+    "name": "Adrian Barbu",
+    "email": "Email not found",
+    "university": "Florida State University",
+    "research interests": "Data Science",
+    "available master programs": "Computer Science, Information Technology"
+  },
+  {
+    "name": "Dmitry Goldgof",
+    "email": "Email not found",
+    "university": "University of South Florida",
+    "research interests": "Machine Learning",
+    "available master programs": "Computer Science, Information Technology"
+  },
+  {
+    "name": "Hadi Mohseni",
+    "email": "Email not found",
+    "university": "Florida Atlantic University",
+    "research interests": "Machine Learning",
+    "available master programs": "Computer Science, Electrical Engineering"
+  },
+  {
+    "name": "Shu-Ching Chen",
+    "email": "Email not found",
+    "university": "Florida International University",
+    "research interests": "Data Science and Machine Learning",
+    "available master programs": "Computer Science, Information Systems"
+  }
+]
