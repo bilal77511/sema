@@ -1,3 +1,4 @@
+# main.py
 from crewai import Crew
 from textwrap import dedent
 from professor_agents import ProfessorAgents
@@ -38,6 +39,8 @@ class ProfessorFinderCrew:
         university_finder = agents.university_finder_agent()
         professor_finder = agents.professor_finder_agent()
         contact_extractor = agents.contact_extractor_agent()
+        info_filler = agents.info_filler_agent()
+        validator = agents.validation_agent()
 
         find_universities_task = tasks.find_universities_task(
             university_finder,
@@ -51,10 +54,17 @@ class ProfessorFinderCrew:
         extract_contact_task = tasks.extract_contact_task(
             contact_extractor
         )
+        fill_missing_info_task = tasks.fill_missing_info_task(
+            info_filler,
+            self.masters_program
+        )
+        validate_information_task = tasks.validate_information_task(
+            validator
+        )
 
         crew = Crew(
-            agents=[university_finder, professor_finder, contact_extractor],
-            tasks=[find_universities_task, find_professors_task, extract_contact_task],
+            agents=[university_finder, professor_finder, contact_extractor, info_filler, validator],
+            tasks=[find_universities_task, find_professors_task, extract_contact_task, fill_missing_info_task, validate_information_task],
             verbose=True
         )
 

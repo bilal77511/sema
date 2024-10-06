@@ -2,6 +2,7 @@ from crewai import Agent
 from langchain_openai import ChatOpenAI
 from tools.browser_tools import BrowserTools
 from tools.search_tools import SearchTools
+from tools.email_search_tool import EmailSearchTool
 import os
 
 class ProfessorAgents():
@@ -40,12 +41,40 @@ class ProfessorAgents():
 
     def contact_extractor_agent(self):
         return Agent(
-            role='Contact Information Extractor',
-            goal='Extract and verify professor contact information',
-            backstory='An expert in parsing and validating contact information from various sources. Failure to find an email will result in a $100 penalty.',
+            role='Email Extractor',
+            goal='Extract and verify professor email addresses',
+            backstory='An expert in finding and validating email addresses',
             tools=[
                 BrowserTools.scrape_and_summarize_website,
                 SearchTools.search_internet,
+                EmailSearchTool.search_professor_email,
+            ],
+            verbose=True,
+            llm=self.llm
+        )
+
+    def info_filler_agent(self):
+        return Agent(
+            role='Information Filler',
+            goal='Fill in missing professor information',
+            backstory='A meticulous researcher capable of finding and verifying academic information from official sources or Google',
+            tools=[
+                BrowserTools.scrape_and_summarize_website,
+                SearchTools.search_internet,
+                EmailSearchTool.search_professor_email,
+            ],
+            verbose=True,
+            llm=self.llm
+        )
+    def validation_agent(self):
+        return Agent(
+            role='Information Validator',
+            goal='Validate all collected information about professors and universities',
+            backstory='A meticulous fact-checker with expertise in academic information verification',
+            tools=[
+                BrowserTools.scrape_and_summarize_website,
+                SearchTools.search_internet,
+                EmailSearchTool.search_professor_email,
             ],
             verbose=True,
             llm=self.llm

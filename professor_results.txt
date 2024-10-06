@@ -1,65 +1,58 @@
-[
-  {
-    "name": "James Haralambides",
-    "email": "jharalambides@barry.edu",
-    "university": "Barry University",
-    "research interests": "Embedded Design, VLSI Design, and Applied Graph Theory",
-    "available master programs": "Computer Science, Information Technology"
+{
+  "Florida A&M University": {
+    "Professor": "Aajanae1 Williams",
+    "Email": "aajanae1.williams@famu.edu",
+    "University": "Florida A&M University",
+    "Department": "Department of Computer and Information Sciences",
+    "Research Interests": "Not Found",
+    "Master Programs": ["MS in Computer Science", "Engineering Data Analytics Certificate"]
   },
-  {
-    "name": "Richard S. Stansbury",
-    "email": "Email not found",
-    "university": "Embry-Riddle Aeronautical University",
-    "research interests": "Artificial Intelligence and Machine Learning",
-    "available master programs": "Software Engineering, Cyber Intelligence and Security"
+  "Florida Atlantic University": {
+    "Professor": "Xingquan (Hill) Zhu",
+    "Email": "xzhu3@fau.edu",
+    "University": "Florida Atlantic University",
+    "Department": "Department of Computer and Electrical Engineering and Computer Science",
+    "Research Interests": "Artificial Intelligence, Computer Science",
+    "Master Programs": ["MS with Major in Artificial Intelligence", "MS with Major in Computer Science", "MS in Information Technology and Management"]
   },
-  {
-    "name": "Bidhan C. Saha",
-    "email": "Email not found",
-    "university": "Florida A&M University",
-    "research interests": "Data Science",
-    "available master programs": "Computer Science, Information Systems"
+  "Florida Gulf Coast University": {
+    "Professor": "Anna Koufakou",
+    "Email": "akoufakou@fgcu.edu",
+    "University": "Florida Gulf Coast University",
+    "Department": "Department of Computing and Software Engineering",
+    "Research Interests": "Software Engineering",
+    "Master Programs": ["MS Information Systems & Analytics", "Computer Science"]
   },
-  {
-    "name": "Chrissann Ruehle",
-    "email": "Email not found",
-    "university": "Florida Gulf Coast University",
-    "research interests": "Artificial Intelligence",
-    "available master programs": "Computer Science, Information Systems"
+  "Florida International University": {
+    "Professor": "Yanzhao Wu",
+    "Email": "yawu@fiu.edu",
+    "University": "Florida International University",
+    "Department": "Knight Foundation School of Computing and Information Sciences",
+    "Research Interests": "Data Science, Machine Learning",
+    "Master Programs": ["Master of Science in Data Science & Artificial Intelligence"]
   },
-  {
-    "name": "Alina Zare",
-    "email": "Email not found",
-    "university": "University of Florida",
-    "research interests": "Machine Learning and Sensing",
-    "available master programs": "Computer Science, Electrical and Computer Engineering"
+  "Florida State University": {
+    "Professor": "Kyle Gallivan",
+    "Email": "gallivan@math.fsu.edu",
+    "University": "Florida State University",
+    "Department": "Department of Scientific Computing",
+    "Research Interests": "Data Science, Network Modeling, Scientific Visualization, Computational Fluid Dynamics, GPU Programming, Deep Learning",
+    "Master Programs": ["M.S. in Data Science", "Interdisciplinary Master's Degree in Data Science (MS-IDS)"]
   },
-  {
-    "name": "Adrian Barbu",
-    "email": "Email not found",
-    "university": "Florida State University",
-    "research interests": "Data Science",
-    "available master programs": "Computer Science, Information Technology"
+  "University of Central Florida": {
+    "Professor": "Ladislau Boloni",
+    "Email": "Ladislau.Boloni@ucf.edu",
+    "University": "University of Central Florida",
+    "Department": "Department of Computer Science",
+    "Research Interests": "Robotics and AI, Deep Learning from Demonstration, Vision-based End-to-end Learning, Human-Robot Teaming, Meta Learning, Autonomous Agents",
+    "Master Programs": ["Computer Science, MS", "Machine Learning and AI"]
   },
-  {
-    "name": "Dmitry Goldgof",
-    "email": "Email not found",
-    "university": "University of South Florida",
-    "research interests": "Machine Learning",
-    "available master programs": "Computer Science, Information Technology"
-  },
-  {
-    "name": "Hadi Mohseni",
-    "email": "Email not found",
-    "university": "Florida Atlantic University",
-    "research interests": "Machine Learning",
-    "available master programs": "Computer Science, Electrical Engineering"
-  },
-  {
-    "name": "Shu-Ching Chen",
-    "email": "Email not found",
-    "university": "Florida International University",
-    "research interests": "Data Science and Machine Learning",
-    "available master programs": "Computer Science, Information Systems"
+  "University of Florida": {
+    "Professor": "Lisa Anthony, Ph.D.",
+    "Email": "lanthony@cise.ufl.edu",
+    "University": "University of Florida",
+    "Department": "Department of Computer and Information Science and Engineering",
+    "Research Interests": "AI/Machine Learning",
+    "Master Programs": ["Master's Program - Computer & Information Science & Engineering", "MSAIS - MS in AI Systems"]
   }
-]
+}
