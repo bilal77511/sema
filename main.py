@@ -1,9 +1,12 @@
 # main.py
+import streamlit as st
 from crewai import Crew
 from textwrap import dedent
 from professor_agents import ProfessorAgents
 from professor_tasks import ProfessorTasks
 from dotenv import load_dotenv
+import pandas as pd
+from io import StringIO
 import json
 import os
 
@@ -82,16 +85,76 @@ class ProfessorFinderCrew:
 
         return result
 
-if __name__ == "__main__":
-    print("## Welcome to Professor Finder")
-    print('-----------------------------')
-    location = input("Enter the name of the city or state: ")
-    interests = input("Enter your research interests (comma-separated): ")
-    masters_program = input("Enter the desired Master's program: ")
+def main():
+    st.title("SEMA")
+    st.subheader("AI that can find professors for you")
     
-    finder_crew = ProfessorFinderCrew(location, interests, masters_program)
-    result = finder_crew.run()
-    print("\n\n########################")
-    print(f"## Professor Details have been saved to {finder_crew.output_file}")
-    print("########################\n")
-    print(result)
+    # Add warning/info message
+    st.info("""
+        🎓 Welcome to SEMA! This AI tool helps you find professors matching your research interests.
+        
+        ⚠️ Please Note:
+        - The search process may take 5-10 minutes
+        - Results should be validated independently
+        - This tool is still under development
+    """)
+
+    # Input form
+    with st.form("professor_finder_form"):
+        location = st.text_input("Enter the name of the city or state:")
+        interests = st.text_input("Enter your research interests (comma-separated):")
+        masters_program = st.text_input("Enter the desired Master's program:")
+        
+        submitted = st.form_submit_button("Find Professors")
+
+    if submitted:
+        # Show progress message
+        with st.spinner('Finding professors... This may take 5-10 minutes. Please be patient.'):
+            finder_crew = ProfessorFinderCrew(location, interests, masters_program)
+            result = finder_crew.run()
+
+            try:
+                # Convert CSV string to DataFrame
+                df = pd.read_csv(StringIO(result))
+
+                # Display results
+                st.subheader("Results")
+                st.warning("⚠️ Please validate these results independently as they may not be 100% accurate.")
+                st.dataframe(df)
+
+                # Add download button
+                st.download_button(
+                    label="Download as CSV",
+                    data=result,
+                    file_name="professor_results.csv",
+                    mime="text/csv"
+                )
+
+                # Show raw data in expandable section
+                with st.expander("View Raw Data"):
+                    st.text(result)
+
+            except Exception as e:
+                st.error(f"Error processing results: {str(e)}")
+                st.text("Raw output:")
+                st.text(result)
+
+    # Add footer with creator information
+    st.markdown("---")
+    st.markdown("""
+        ### About the Creator
+        
+        Finding the right professors can be a time-consuming task, so I’ve created a bot to streamline the process. This tool searches the web to help you quickly discover professors whose research aligns with your academic interests.
+
+        It's currently in beta, and I'm actively working on improvements to enhance accuracy and usability. Enjoy exploring, and let me know if you have feedback!
+
+        **Built with ❤️ by Muhammad Bilal**
+
+        
+        Connect with me:
+        - [LinkedIn](https://www.linkedin.com/in/muhammad-bilal-a75782280)
+        - [GitHub](https://github.com/bilal77511)
+    """)
+
+if __name__ == "__main__":
+    main()

@@ -52,26 +52,33 @@ class ProfessorTasks:
                 Ensure all fields are present for each professor: name, email, university, department, research interests, and master programs. 
                 Verify the name, email, university, and research interest of each professor is correct.
                 Validate all the data using google.
-                Your final answer should be a complete JSON output with all available information for each professor.
+                Your final answer should be in CSV format with the following columns:
+                name,email,university,department,research_interests,master_programs
+                Make sure to separate fields with commas and escape any commas within fields.
             """),
             agent=agent,
-            expected_output="Complete JSON output about professor: name, email, university, department, research interests, and master programs."
+            expected_output="Complete CSV output with headers: name,email,university,department,research_interests,master_programs"
         )
+
     def validate_information_task(self, agent):
         return Task(
             description=dedent(f"""
                 Thoroughly validate all the information collected about professors and universities.
                 This includes:
                 1. Verifying the existence and status of each university as a public research institution.
-                2. Confirming each professor's email adress is correct if not present look for it search on google .
-                4. Validating email addresses by checking official university directories or contact pages or google .
-                5. Confirming the existence of the mentioned master's programs at each university.
+                2. Confirming each professor's email address is correct if not present look for it search on google.
+                3. Validating email addresses by checking official university directories or contact pages or google.
+                4. Confirming the existence of the mentioned master's programs at each university.
 
+                Your final answer should be in CSV format with the following columns:
+                name,email,university,department,research_interests,master_programs
                 
-
-                Your final answer should be a complete JSON output with all available information for each professor.
-            
+                Make sure to:
+                - Separate fields with commas
+                - Escape any commas within fields using quotes
+                - Include the header row
+                - Validate all data before including it
             """),
             agent=agent,
-            expected_output="Complete validated JSON output about professor: name, email, university, department, research interests, and master programs."
+            expected_output="Complete validated CSV output with headers: name,email,university,department,research_interests,master_programs"
         )
