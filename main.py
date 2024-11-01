@@ -7,8 +7,6 @@ from professor_tasks import ProfessorTasks
 from dotenv import load_dotenv
 import pandas as pd
 from io import StringIO
-import json
-import os
 
 load_dotenv()
 
@@ -18,22 +16,6 @@ class ProfessorFinderCrew:
         self.location = location
         self.interests = interests
         self.masters_program = masters_program
-        self.data_file = 'professor_data.json'
-        self.output_file = 'professor_results.txt'
-
-    def load_data(self):
-        if os.path.exists(self.data_file):
-            with open(self.data_file, 'r') as f:
-                return json.load(f)
-        return {}
-
-    def save_data(self, data):
-        with open(self.data_file, 'w') as f:
-            json.dump(data, f)
-
-    def save_output(self, result):
-        with open(self.output_file, 'w') as f:
-            f.write(result)
 
     def run(self):
         agents = ProfessorAgents()
@@ -71,19 +53,7 @@ class ProfessorFinderCrew:
             verbose=True
         )
 
-        result = crew.kickoff()
-
-        # Save the result to local storage
-        data = self.load_data()
-        if self.location not in data:
-            data[self.location] = {}
-        data[self.location][self.masters_program] = result
-        self.save_data(data)
-
-        # Save the result to a text file
-        self.save_output(result)
-
-        return result
+        return crew.kickoff()
 
 def main():
     st.title("SEMA")
@@ -114,13 +84,36 @@ def main():
             result = finder_crew.run()
 
             try:
-                # Convert CSV string to DataFrame
-                df = pd.read_csv(StringIO(result))
+                # Convert CSV string to DataFrame with proper parsing
+                df = pd.read_csv(
+                    StringIO(result),
+                    names=['Name', 'Email', 'University', 'Department', 'Research Interests', 'Programs'],  # Define column names
+                    quoting=1,  # Handle quoted fields
+                    doublequote=True,  # Handle double quotes
+                    escapechar=None,
+                    on_bad_lines='warn'
+                )
+
+                # Clean up any potential whitespace
+                df = df.apply(lambda x: x.str.strip() if isinstance(x, str) else x)
 
                 # Display results
                 st.subheader("Results")
                 st.warning("⚠️ Please validate these results independently as they may not be 100% accurate.")
-                st.dataframe(df)
+                
+                # Display DataFrame with better formatting
+                st.dataframe(
+                    df,
+                    column_config={
+                        "Name": st.column_config.TextColumn("Professor Name"),
+                        "Email": st.column_config.TextColumn("Email Address"),
+                        "University": st.column_config.TextColumn("University"),
+                        "Department": st.column_config.TextColumn("Department"),
+                        "Research Interests": st.column_config.TextColumn("Research Interests"),
+                        "Programs": st.column_config.TextColumn("Available Programs")
+                    },
+                    hide_index=True
+                )
 
                 # Add download button
                 st.download_button(

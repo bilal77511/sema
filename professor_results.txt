@@ -1,5 +1,0 @@
-"name","email","university","department","research_interests","master_programs"
-"Idongesit Mkpong-Ruffin","idongesit.ruffin@famu.edu","Florida A&M University","FAMU Department of Computer & Information Sciences","Computer Science (Cybersecurity)","Master of Science in Computer Science, Master of Science in Cybersecurity, Master of Science in Information Systems"
-"Vance Peterson","vpeterso@fau.edu","Florida Atlantic University","Department of Electrical Engineering and Computer Science","Data Science","Master of Science with Major in Artificial Intelligence, Master of Science with Major in Data Science and Analytics, Master of Science in Computer Science, Master of Science in Electrical Engineering"
-"Vinod Ahuja","vahuja@fgcu.edu","Florida Gulf Coast University","Department of Computing and Software Engineering","Artificial Intelligence and Data Science","Master of Science in Engineering (M.S.E.)"
-"Malek Adjouadi","adjouadi@fiu.edu","Florida International University","Knight Foundation School of Computing and Information Sciences","Data Science","MS in Computer Science, MS in Information Technology, MS in Cybersecurity" 
